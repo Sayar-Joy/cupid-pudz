@@ -143,7 +143,7 @@ async function confirmMatch() {
         name: user.name,
         major: user.major,
         matched_major: result.matched_major,
-        sticker_url: result.sticker_url,
+        sticker_id: result.sticker_id,
       }),
     });
 
