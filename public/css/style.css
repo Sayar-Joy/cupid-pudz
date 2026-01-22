@@ -2,7 +2,7 @@ body {
   background: linear-gradient(135deg, #19a3d9 0%, #0d7fab 100%);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
 /* Navigation Bar */
@@ -11,7 +11,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 60px;
   background-image: url("/assets/navbar.png");
   background-size: cover;
   background-position: center;
@@ -25,18 +25,18 @@ body {
 .navbar-content {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 0 30px;
+  gap: 10px;
+  padding: 0 20px;
 }
 
 .navbar-logo {
-  height: 60px;
+  height: 45px;
   width: auto;
   object-fit: contain;
 }
 
 .navbar-brand {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -123,13 +123,18 @@ body {
   color: #19a3d9 !important;
 }
 
-.display-4,
+.display-4 {
+  font-size: 2rem !important;
+  font-weight: 700;
+}
+
 .display-5 {
+  font-size: 1.75rem !important;
   font-weight: 700;
 }
 
 .lead {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 /* Slot Machine Styles */
