@@ -164,6 +164,9 @@ async function confirmMatch() {
 
     const savedMatch = await response.json();
 
+    // Convert sticker ID to URL for receipt page
+    const finalStickerUrl = getStickerUrl(result.matched_major, result.sticker_id);
+
     // Store confirmed match for receipt page
     sessionStorage.setItem(
       "confirmedMatch",
@@ -171,7 +174,7 @@ async function confirmMatch() {
         name: user.name,
         major: user.major,
         matched_major: result.matched_major,
-        sticker_url: result.sticker_url,
+        sticker_url: finalStickerUrl,
       }),
     );
 
