@@ -1,6 +1,11 @@
 // Result page logic
 import API_BASE_URL from "./config.js";
 
+// Map sticker IDs to actual file paths
+function getStickerUrl(major, stickerId) {
+  return `/stickers/${major}/${stickerId}.webp`;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Result page loaded");
 
@@ -56,11 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
         "💝 ကံကြမ္မာကိုလက်ခံလိုက်ပြီ";
     }
 
+    // Convert sticker IDs to URLs
+    const stickerUrl = getStickerUrl(result.matched_major, result.sticker_id);
+    const allStickerUrls = (result.all_sticker_ids || []).map(id => 
+      getStickerUrl(result.matched_major, id)
+    );
+
     // Start sticker slot animation
     animateStickerSlot(
-      result.sticker_url,
+      stickerUrl,
       result.matched_major,
-      result.all_stickers || [],
+      allStickerUrls,
     );
 
     // Don't clear sessionStorage - we need it for rematching
