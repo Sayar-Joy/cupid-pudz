@@ -1,0 +1,8 @@
+{
+  "name": "cupid-pudding-frontend",
+  "version": "1.0.0",
+  "description": "Cupid Pudding Frontend - Static HTML/CSS/JS",
+  "scripts": {
+    "build": "echo 'No build step required for static site'"
+  }
+}

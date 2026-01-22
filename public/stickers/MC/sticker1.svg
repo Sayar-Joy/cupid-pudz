@@ -1,0 +1,6 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#FF69B4"/>
+  <text x="150" y="130" font-family="Arial" font-size="60" fill="#C71585" text-anchor="middle">🎬</text>
+  <text x="150" y="180" font-family="Arial" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">MC</text>
+  <text x="150" y="210" font-family="Arial" font-size="16" fill="#fff" text-anchor="middle">Creative Storyteller</text>
+</svg>
