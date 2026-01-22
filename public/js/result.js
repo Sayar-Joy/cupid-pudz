@@ -63,16 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Convert sticker IDs to URLs
     const stickerUrl = getStickerUrl(result.matched_major, result.sticker_id);
-    const allStickerUrls = (result.all_sticker_ids || []).map(id => 
-      getStickerUrl(result.matched_major, id)
+    const allStickerUrls = (result.all_sticker_ids || []).map((id) =>
+      getStickerUrl(result.matched_major, id),
     );
 
     // Start sticker slot animation
-    animateStickerSlot(
-      stickerUrl,
-      result.matched_major,
-      allStickerUrls,
-    );
+    animateStickerSlot(stickerUrl, result.matched_major, allStickerUrls);
 
     // Don't clear sessionStorage - we need it for rematching
   } catch (error) {
@@ -165,7 +161,10 @@ async function confirmMatch() {
     const savedMatch = await response.json();
 
     // Convert sticker ID to URL for receipt page
-    const finalStickerUrl = getStickerUrl(result.matched_major, result.sticker_id);
+    const finalStickerUrl = getStickerUrl(
+      result.matched_major,
+      result.sticker_id,
+    );
 
     // Store confirmed match for receipt page
     sessionStorage.setItem(
