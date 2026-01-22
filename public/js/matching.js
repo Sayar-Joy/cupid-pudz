@@ -3,9 +3,6 @@ import API_BASE_URL from "./config.js";
 
 // Map sticker IDs to actual file paths
 function getStickerUrl(major, stickerId) {
-  if (major === "MC") {
-    return `/stickers/MC/${stickerId}.svg`;
-  }
   return `/stickers/${major}/${stickerId}.webp`;
 }
 
@@ -76,9 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json();
 
       // Convert sticker IDs to URLs for frontend use
-      result.sticker_url = getStickerUrl(result.matched_major, result.sticker_id);
-      result.all_stickers = result.all_sticker_ids.map(id => 
-        getStickerUrl(result.matched_major, id)
+      result.sticker_url = getStickerUrl(
+        result.matched_major,
+        result.sticker_id,
+      );
+      result.all_stickers = result.all_sticker_ids.map((id) =>
+        getStickerUrl(result.matched_major, id),
       );
 
       // Track this match and sticker ID to prevent repeats
