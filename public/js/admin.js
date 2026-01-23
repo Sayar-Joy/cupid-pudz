@@ -1,9 +1,9 @@
-import { API_BASE_URL } from "./config.js";
+import API_BASE_URL from "./config.js";
 
 // Fetch and display all user data
 async function loadAdminData() {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/users`);
+    const response = await fetch(`${API_BASE_URL}/admin/users`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch admin data");
@@ -43,7 +43,7 @@ function updateStatistics(data) {
   // Count today's matches
   const today = new Date().toDateString();
   const todayMatches = data.users.filter(
-    (user) => new Date(user.created_at).toDateString() === today
+    (user) => new Date(user.created_at).toDateString() === today,
   ).length;
   document.getElementById("todayMatches").textContent = todayMatches;
 }
@@ -55,11 +55,14 @@ function updateDistributions(statistics) {
   majorDistDiv.innerHTML = "";
 
   const sortedMajors = Object.entries(statistics.byMajor).sort(
-    (a, b) => b[1] - a[1]
+    (a, b) => b[1] - a[1],
   );
 
   sortedMajors.forEach(([major, count]) => {
-    const percentage = ((count / Object.values(statistics.byMajor).reduce((a, b) => a + b, 0)) * 100).toFixed(1);
+    const percentage = (
+      (count / Object.values(statistics.byMajor).reduce((a, b) => a + b, 0)) *
+      100
+    ).toFixed(1);
     majorDistDiv.innerHTML += `
       <div class="mb-2">
         <div class="d-flex justify-content-between mb-1">
@@ -79,11 +82,15 @@ function updateDistributions(statistics) {
   matchedDistDiv.innerHTML = "";
 
   const sortedMatched = Object.entries(statistics.byMatchedMajor).sort(
-    (a, b) => b[1] - a[1]
+    (a, b) => b[1] - a[1],
   );
 
   sortedMatched.forEach(([major, count]) => {
-    const percentage = ((count / Object.values(statistics.byMatchedMajor).reduce((a, b) => a + b, 0)) * 100).toFixed(1);
+    const percentage = (
+      (count /
+        Object.values(statistics.byMatchedMajor).reduce((a, b) => a + b, 0)) *
+      100
+    ).toFixed(1);
     matchedDistDiv.innerHTML += `
       <div class="mb-2">
         <div class="d-flex justify-content-between mb-1">
@@ -131,7 +138,7 @@ function populateTable(users) {
 // Download data as CSV
 window.downloadCSV = async function () {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/users`);
+    const response = await fetch(`${API_BASE_URL}/admin/users`);
     const data = await response.json();
 
     // Create CSV content
