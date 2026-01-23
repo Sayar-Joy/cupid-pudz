@@ -1,7 +1,22 @@
 // Main form submission logic
 import API_BASE_URL from "./config.js";
 
+// Health check to keep Render server warm
+async function healthCheck() {
+  try {
+    await fetch(`${API_BASE_URL}/health`, {
+      method: "GET",
+    });
+    console.log("Health check successful");
+  } catch (error) {
+    console.log("Health check failed:", error);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Call health check on page load
+  healthCheck();
+  
   const form = document.getElementById("matchForm");
   const loading = document.getElementById("loading");
   const errorDiv = document.getElementById("error");
