@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('/assets/fonts/NotoSerif-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: normal;
+}
+
 body {
   background: linear-gradient(135deg, #19a3d9 0%, #0d7fab 100%);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Noto Serif', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   padding-top: 60px;
 }

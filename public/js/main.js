@@ -16,7 +16,7 @@ async function healthCheck() {
 document.addEventListener("DOMContentLoaded", () => {
   // Call health check on page load
   healthCheck();
-  
+
   const form = document.getElementById("matchForm");
   const loading = document.getElementById("loading");
   const errorDiv = document.getElementById("error");
